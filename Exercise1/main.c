@@ -100,7 +100,7 @@ void run_commands (Commands_t* cmd, Matrix_t** mats, unsigned int num_mats) {
 			}
 	}
 	else if (strncmp(cmd->cmds[0],"duplicate",strlen("duplicate") + 1) == 0
-		&& cmd->num_cmds == 2 && strlen(cmd->cmds[1]) + 1 <= MATRIX_NAME_LEN) {
+		&& cmd->num_cmds == 3 && strlen(cmd->cmds[1]) + 1 <= MATRIX_NAME_LEN) {
 		int mat1_idx = find_matrix_given_name(mats,num_mats,cmd->cmds[1]);
 		if (mat1_idx >= 0 ) {
 				Matrix_t* dup_mat = NULL;

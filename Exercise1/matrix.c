@@ -96,7 +96,7 @@ bool duplicate_matrix (Matrix_t* src, Matrix_t* dest) {
 	 * copy over data
 	 */
 	unsigned int bytesToCopy = sizeof(unsigned int) * src->rows * src->cols;
-	memcpy(src->data,dest->data, bytesToCopy);	
+	memcpy(dest->data,src->data, bytesToCopy);	
 	return equal_matrices (src,dest);
 }
 
