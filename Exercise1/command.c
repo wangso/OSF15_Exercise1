@@ -10,9 +10,26 @@
 
 
 	//TODO FUNCTION COMMENT
+/* 
+ * PURPOSE: To parse a user input string and returns the tokenized commands to a pointer
+ * INPUTS:
+ *	input input command string
+ * 	cmd pointer to the Command_t structure containing the tokenized commands and the number of commands
+ * RETURN:
+ *  If no errors occurred during parsing then true
+ *  else false for an error in the process.
+ *
+ **/
+
 bool parse_user_input (const char* input, Commands_t** cmd) {
 	
 	//TODO ERROR CHECK INCOMING PARAMETERS
+	if (!input) {
+		return false;
+	}
+	if (!cmd) {
+		return false;	
+	}
 
 	char *string = strdup(input);
 	
@@ -37,9 +54,22 @@ bool parse_user_input (const char* input, Commands_t** cmd) {
 }
 
 	//TODO FUNCTION COMMENT
+/* 
+ * PURPOSE: To clear the memory allocation for the variable
+ * INPUTS:
+ * 	name of the pointer to the Command_t structure containing commands 
+ * RETURN:
+ *  If no errors occurred the memory allocated to cmd is cleared
+ *  else return nothing.
+ *
+ **/
+
 void destroy_commands(Commands_t** cmd) {
 
 	//TODO ERROR CHECK INCOMING PARAMETERS
+	if (!cmd) {
+		return;	
+	}
 	
 	for (int i = 0; i < (*cmd)->num_cmds; ++i) {
 		free((*cmd)->cmds[i]);
